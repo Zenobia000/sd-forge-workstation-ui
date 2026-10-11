@@ -1,0 +1,250 @@
+{
+  "aniverse_v16Pruned": {
+    "family": "SD1.5",
+    "style": {
+      "en": "2.5D anime-realistic mix, saturated colors, solid-looking figures",
+      "zh_TW": "2.5D 動漫寫實混合，色彩飽和、人物立體"
+    },
+    "best_for": {
+      "en": "Anime-style people, character art, semi-realistic illustration",
+      "zh_TW": "動漫風人物、角色立繪、半寫實插畫"
+    },
+    "settings": {
+      "en": "512x768 | Steps 25-30 | CFG 5-7 | DPM++ 2M Karras",
+      "zh_TW": "512x768｜Steps 25-30｜CFG 5-7｜DPM++ 2M Karras"
+    },
+    "notes": ""
+  },
+  "detailAsianRealistic_v45Remark2": {
+    "family": "SD1.5",
+    "style": {
+      "en": "Realistic Asian portraits with refined skin and detail",
+      "zh_TW": "亞洲寫實人像，皮膚與細節偏精緻"
+    },
+    "best_for": {
+      "en": "Asian portraits, photo-shoot style",
+      "zh_TW": "亞洲人像、寫真風格"
+    },
+    "settings": {
+      "en": "512x768 | Steps 25-30 | CFG 5-7 | DPM++ 2M Karras, Hires. fix x1.5-2 recommended",
+      "zh_TW": "512x768｜Steps 25-30｜CFG 5-7｜DPM++ 2M Karras，建議開 Hires. fix x1.5-2"
+    },
+    "notes": ""
+  },
+  "dreamshaper_8": {
+    "family": "SD1.5",
+    "style": {
+      "en": "All-rounder from realistic to fantasy illustration, slightly dreamy",
+      "zh_TW": "全能型，寫實到奇幻插畫都能做，畫面帶一點夢幻感"
+    },
+    "best_for": {
+      "en": "General testing, fantasy scenes, concept art",
+      "zh_TW": "通用測試、奇幻場景、概念圖"
+    },
+    "settings": {
+      "en": "512x768 | Steps 25-30 | CFG 5-7 | DPM++ 2M Karras",
+      "zh_TW": "512x768｜Steps 25-30｜CFG 5-7｜DPM++ 2M Karras"
+    },
+    "notes": {
+      "en": "A good first SD 1.5 model for learning the parameters",
+      "zh_TW": "SD1.5 入門首選，用來學參數最直覺"
+    }
+  },
+  "epicphotogasm_ultimateFidelity": {
+    "family": "SD1.5",
+    "style": {
+      "en": "Photorealistic, focused on real photographic texture and light",
+      "zh_TW": "照片寫實，強調真實攝影質感與光影"
+    },
+    "best_for": {
+      "en": "Realistic photography, portraits, lifestyle shots",
+      "zh_TW": "寫實攝影、人像、生活情境照"
+    },
+    "settings": {
+      "en": "512x768 | Steps 25-35 | CFG 4-6 | DPM++ 2M Karras / DPM++ SDE",
+      "zh_TW": "512x768｜Steps 25-35｜CFG 4-6｜DPM++ 2M Karras / DPM++ SDE"
+    },
+    "notes": ""
+  },
+  "helloasian_V21a": {
+    "family": "SD1.5",
+    "style": {
+      "en": "Realistic Asian portraits, everyday natural look",
+      "zh_TW": "亞洲寫實人像，偏日常自然風"
+    },
+    "best_for": {
+      "en": "Asian portraits, social-media style photos",
+      "zh_TW": "亞洲人像、社群風格照片"
+    },
+    "settings": {
+      "en": "512x768 | Steps 25-30 | CFG 5-7 | DPM++ 2M Karras",
+      "zh_TW": "512x768｜Steps 25-30｜CFG 5-7｜DPM++ 2M Karras"
+    },
+    "notes": {
+      "en": "Large file (full-precision weights), loads a bit slower",
+      "zh_TW": "檔案較大（含完整精度權重），載入稍慢"
+    }
+  },
+  "majicmixRealistic_v7": {
+    "family": "SD1.5",
+    "style": {
+      "en": "Realistic Asian beauty style, soft light, clean skin",
+      "zh_TW": "亞洲寫實美顏風，柔光、膚質乾淨"
+    },
+    "best_for": {
+      "en": "Asian female portraits, beauty / fashion photos",
+      "zh_TW": "亞洲女性人像、美妝/時尚感照片"
+    },
+    "settings": {
+      "en": "512x768 | Steps 25-30 | CFG 5-7 | DPM++ 2M Karras, Hires. fix recommended",
+      "zh_TW": "512x768｜Steps 25-30｜CFG 5-7｜DPM++ 2M Karras，建議 Hires. fix"
+    },
+    "notes": ""
+  },
+  "bluePencilXL_v700": {
+    "family": "SDXL",
+    "style": {
+      "en": "Anime illustration, clean lines, bright colors",
+      "zh_TW": "動漫插畫，線條乾淨、色彩明亮"
+    },
+    "best_for": {
+      "en": "Anime illustration, characters",
+      "zh_TW": "動漫插畫、角色圖"
+    },
+    "settings": {
+      "en": "1024x1024 or 832x1216 | Steps 25-30 | CFG 5-7 | DPM++ 2M Karras",
+      "zh_TW": "1024x1024 或 832x1216｜Steps 25-30｜CFG 5-7｜DPM++ 2M Karras"
+    },
+    "notes": ""
+  },
+  "dreamshaperXL_lightningDPMSDE": {
+    "family": "SDXL",
+    "style": {
+      "en": "All-rounder (realistic / illustration), Lightning version: images in a few steps",
+      "zh_TW": "全能型（寫實／插畫），Lightning 加速版，幾步就出圖"
+    },
+    "best_for": {
+      "en": "Quick drafts, lots of ideas fast",
+      "zh_TW": "快速出草稿、大量發想"
+    },
+    "settings": {
+      "en": "1024x1024 | Steps 4-8 | CFG 2 (must stay low) | DPM++ SDE Karras",
+      "zh_TW": "1024x1024｜Steps 4-8｜CFG 2（一定要低）｜DPM++ SDE Karras"
+    },
+    "notes": {
+      "en": "Lightning model: higher CFG or more steps burns or blurs the image",
+      "zh_TW": "Lightning 模型：CFG 調高或步數太多反而會過曝、糊掉"
+    }
+  },
+  "illustriousPencilXL_v200": {
+    "family": "SDXL",
+    "style": {
+      "en": "Illustrious-based anime with very recognizable characters",
+      "zh_TW": "Illustrious 系動漫，角色辨識度高"
+    },
+    "best_for": {
+      "en": "Anime characters, fan art, illustration",
+      "zh_TW": "動漫角色、二創、插畫"
+    },
+    "settings": {
+      "en": "832x1216 | Steps 25-30 | CFG 5-7 | Euler a. Danbooru tags work best (e.g. 1girl, solo, ...)",
+      "zh_TW": "832x1216｜Steps 25-30｜CFG 5-7｜Euler a。提示詞用 Danbooru 標籤（例：1girl, solo, ...）效果最好"
+    },
+    "notes": ""
+  },
+  "juggernautXL_ragnarokBy": {
+    "family": "SDXL",
+    "style": {
+      "en": "Commercial-photo realism, stable composition, lots of detail",
+      "zh_TW": "商業攝影級寫實，構圖穩、細節多"
+    },
+    "best_for": {
+      "en": "Product shots, portraits, ad key visuals",
+      "zh_TW": "商品攝影、人像、廣告主視覺"
+    },
+    "settings": {
+      "en": "1024x1024 or 832x1216 | Steps 30-40 | CFG 3-6 | DPM++ 2M SDE Karras",
+      "zh_TW": "1024x1024 或 832x1216｜Steps 30-40｜CFG 3-6｜DPM++ 2M SDE Karras"
+    },
+    "notes": {
+      "en": "Check the license on the model page before commercial use",
+      "zh_TW": "商用前請到模型頁確認授權條款"
+    }
+  },
+  "sd_xl_base_1.0": {
+    "family": "SDXL",
+    "style": {
+      "en": "Official base model, neutral style, no particular tuning",
+      "zh_TW": "官方原版底模，風格中性、無特別調教"
+    },
+    "best_for": {
+      "en": "A baseline for comparison; base for LoRA training",
+      "zh_TW": "當作基準比較；訓練 LoRA 的基底"
+    },
+    "settings": {
+      "en": "1024x1024 | Steps 30 | CFG 5-7 | DPM++ 2M Karras",
+      "zh_TW": "1024x1024｜Steps 30｜CFG 5-7｜DPM++ 2M Karras"
+    },
+    "notes": {
+      "en": "Usually below community fine-tunes in output quality",
+      "zh_TW": "出圖品質通常不如社群微調模型"
+    }
+  },
+  "sd_xl_refiner_1.0": {
+    "family": "SDXL",
+    "style": {
+      "en": "For refining only, not for generating on its own",
+      "zh_TW": "精修專用，不是拿來單獨生圖的"
+    },
+    "best_for": {
+      "en": "Select it under Refiner, after an SDXL base model, to add detail",
+      "zh_TW": "在「Refiner」欄位選它，接在 SDXL base 後面補細節"
+    },
+    "settings": {
+      "en": "Use as Refiner, Switch at 0.8",
+      "zh_TW": "放在 Refiner，Switch at 0.8"
+    },
+    "notes": {
+      "en": "Generating with it as the Checkpoint gives poor results",
+      "zh_TW": "直接選它當 Checkpoint 生圖效果會很差"
+    }
+  },
+  "flux-2-klein-4b-fp8": {
+    "family": "FLUX.2",
+    "style": {
+      "en": "Semantic editing: change images with text (background, clothes, objects); also text-to-image",
+      "zh_TW": "語意編輯型：用文字指令改圖（換背景、換衣服、換物件），也能文生圖"
+    },
+    "best_for": {
+      "en": "Local semantic edits, reference editing, quick concepts",
+      "zh_TW": "局部語意修改、參考圖編輯、快速概念圖"
+    },
+    "settings": {
+      "en": "UI Preset klein | 1024x1024 | Steps 4 | CFG 1 | Euler / Beta",
+      "zh_TW": "UI Preset 選 klein｜1024x1024｜Steps 4｜CFG 1｜Euler / Beta"
+    },
+    "notes": {
+      "en": "Select both qwen_3_4b and flux2-vae under VAE / Text Encoder. Switch img2img / reference mode in Settings › Stable Diffusion",
+      "zh_TW": "要在「VAE / Text Encoder」同時選 qwen_3_4b 與 flux2-vae 才能用。改圖模式在 Settings → Stable Diffusion 切換 img2img / reference"
+    }
+  },
+  "flux1-schnell": {
+    "family": "FLUX",
+    "style": {
+      "en": "New-generation architecture, strong prompt understanding, can render text",
+      "zh_TW": "新一代架構，提示詞理解力強、可寫字"
+    },
+    "best_for": {
+      "en": "Complex descriptions, text in the image, fast output",
+      "zh_TW": "複雜描述、畫面裡要有文字、快速出圖"
+    },
+    "settings": {
+      "en": "1024x1024 | Steps 4 | CFG 1 | Euler / Simple",
+      "zh_TW": "1024x1024｜Steps 4｜CFG 1｜Euler / Simple"
+    },
+    "notes": {
+      "en": "This file is the diffusion model only: select ae, clip_l and t5xxl under VAE / Text Encoder. FP16 is about 23 GB, tight on a 3090",
+      "zh_TW": "這個檔只有主模型：需另外在「VAE / Text Encoder」選 ae、clip_l、t5xxl 才能用。FP16 約 23GB，3090 吃緊"
+    }
+  }
+}

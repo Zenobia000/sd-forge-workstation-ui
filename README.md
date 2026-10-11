@@ -10,6 +10,7 @@ It only adds to the UI: Forge's own buttons and fields stay where they are and k
 - **Monochrome theme**: a quiet black-and-white theme, line icons instead of emoji, a readable Settings sidebar.
 - **Hints**: a "?" next to common fields explains what they do and which values make sense.
 - **UI Preset by architecture**: the preset dropdown is grouped into U-Net / DiT, with one line on what each family is for and whether you have a model for it.
+- **Model previews**: hover a Checkpoint to see its preview image and style; a Model Compare tab shows them side by side.
 
 ## Install
 
