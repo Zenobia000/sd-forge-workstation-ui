@@ -7,7 +7,7 @@ It only adds to the UI: Forge's own buttons and fields stay where they are and k
 
 ## Features
 
-Features land one pull request at a time.
+- **Monochrome theme**: a quiet black-and-white theme, line icons instead of emoji, a readable Settings sidebar.
 
 ## Install
 

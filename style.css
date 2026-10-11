@@ -1,0 +1,333 @@
+/* Workstation UI theme: OpenAI-style monochrome, values from openai/apps-sdk-ui design tokens
+   (variables-primitive.css / variables-semantic.css). Layout is untouched; only colors, type and radii change.
+   Style only: no OpenAI name, logo or branding is used. */
+
+:root {
+    --ws-font: ui-sans-serif, -apple-system, system-ui, "Segoe UI", "Microsoft JhengHei UI", "Microsoft JhengHei",
+        "Noto Sans TC", "Noto Sans", "Helvetica", "Arial", sans-serif;
+    --ws-font-mono: ui-monospace, "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+    --ws-radius-control: 8px; /* --control-radius-md */
+    --ws-radius-card: 12px; /* --radius-xl: menus, popovers, cards */
+    --ws-radius-composer: 24px; /* --composer-radius */
+}
+
+body:not(.dark) {
+    --ws-accent: #181818; /* primary-solid: gray-900 */
+    --ws-accent-hover: #303030;
+    --ws-on-accent: #ffffff;
+    --ws-surface: #ffffff; /* surface-elevated */
+    --ws-muted: #5d5d5d; /* text-secondary */
+    --ws-subtle: #8f8f8f; /* text-tertiary */
+    --ws-ring: #0169cc; /* blue-500, focus only */
+    --ws-border: rgb(13 13 13 / 10%);
+    --ws-border-strong: rgb(13 13 13 / 15%);
+
+    --body-background-fill: #ffffff;
+    --body-text-color: #0d0d0d;
+    --body-text-color-subdued: #5d5d5d;
+    --background-fill-primary: #ffffff;
+    --background-fill-secondary: #f9f9f9;
+    --block-background-fill: transparent;
+    --block-border-color: var(--ws-border);
+    --border-color-primary: var(--ws-border);
+    --border-color-accent: var(--ws-border-strong);
+    --panel-background-fill: #f9f9f9;
+    --input-background-fill: #ffffff;
+    --input-background-fill-focus: #ffffff;
+    --input-border-color: var(--ws-border-strong);
+    --input-border-color-focus: var(--ws-ring);
+    --color-accent: var(--ws-accent);
+    --color-accent-soft: #ededed;
+    --link-text-color: #0169cc;
+    --slider-color: #767676; /* slider range: gray-450 */
+    --checkbox-background-color-selected: var(--ws-accent);
+    --checkbox-border-color-selected: var(--ws-accent);
+    --checkbox-border-color-focus: var(--ws-ring);
+    --button-primary-background-fill: var(--ws-accent);
+    --button-primary-background-fill-hover: var(--ws-accent-hover);
+    --button-primary-border-color: var(--ws-accent);
+    --button-primary-border-color-hover: var(--ws-accent-hover);
+    --button-primary-text-color: var(--ws-on-accent);
+    --button-primary-text-color-hover: var(--ws-on-accent);
+    --button-secondary-background-fill: #ededed;
+    --button-secondary-background-fill-hover: #dfdfdf;
+    --button-secondary-border-color: transparent;
+    --button-secondary-border-color-hover: transparent;
+    --button-secondary-text-color: #0d0d0d;
+    --button-secondary-text-color-hover: #0d0d0d;
+    --block-shadow: none;
+    --shadow-drop: 0 1px 2px rgb(0 0 0 / 8%);
+    --shadow-drop-lg: 0 4px 16px rgb(0 0 0 / 8%), 0 0 0 1px rgb(0 0 0 / 8%);
+}
+
+body.dark {
+    --ws-accent: #f3f3f3; /* primary-solid: gray-950 (dark) */
+    --ws-accent-hover: #ededed;
+    --ws-on-accent: #0d0d0d;
+    --ws-surface: #303030; /* surface-elevated (dark) */
+    --ws-muted: #afafaf;
+    --ws-subtle: #8f8f8f;
+    --ws-ring: #0285ff; /* blue-400 */
+    --ws-border: rgb(255 255 255 / 12%);
+    --ws-border-strong: rgb(255 255 255 / 20%);
+
+    --body-background-fill: #212121; /* surface (dark) */
+    --body-text-color: #ffffff;
+    --body-text-color-subdued: #afafaf;
+    --background-fill-primary: #212121;
+    --background-fill-secondary: #181818; /* surface-secondary (dark) */
+    --block-background-fill: transparent;
+    --block-border-color: var(--ws-border);
+    --border-color-primary: var(--ws-border);
+    --border-color-accent: var(--ws-border-strong);
+    --panel-background-fill: #181818;
+    --input-background-fill: #2a2a2a;
+    --input-background-fill-focus: #2a2a2a;
+    --input-border-color: var(--ws-border);
+    --input-border-color-focus: var(--ws-ring);
+    --color-accent: var(--ws-accent);
+    --color-accent-soft: #303030;
+    --link-text-color: #0285ff;
+    --slider-color: #8f8f8f; /* slider range (dark) */
+    --checkbox-background-color-selected: var(--ws-ring); /* official switch uses blue when checked in dark */
+    --checkbox-border-color-selected: var(--ws-ring);
+    --checkbox-border-color-focus: var(--ws-ring);
+    --button-primary-background-fill: var(--ws-accent);
+    --button-primary-background-fill-hover: var(--ws-accent-hover);
+    --button-primary-border-color: var(--ws-accent);
+    --button-primary-border-color-hover: var(--ws-accent-hover);
+    --button-primary-text-color: var(--ws-on-accent);
+    --button-primary-text-color-hover: var(--ws-on-accent);
+    --button-secondary-background-fill: #303030;
+    --button-secondary-background-fill-hover: #393939;
+    --button-secondary-border-color: transparent;
+    --button-secondary-border-color-hover: transparent;
+    --button-secondary-text-color: #ffffff;
+    --button-secondary-text-color-hover: #ffffff;
+    --block-shadow: none;
+    --shadow-drop: 0 1px 2px rgb(0 0 0 / 20%);
+    --shadow-drop-lg: 0 4px 16px rgb(0 0 0 / 30%), 0 0 0 1px rgb(255 255 255 / 10%);
+}
+
+/* Type: system stack (OpenAI Sans is not licensed for reuse), weights 400/500/600, no tracking */
+body,
+.gradio-container,
+.gradio-container button,
+.gradio-container input,
+.gradio-container textarea,
+.gradio-container select {
+    --font: var(--ws-font);
+    font-family: var(--ws-font) !important;
+    letter-spacing: 0;
+}
+
+.gradio-container code,
+.gradio-container pre {
+    font-family: var(--ws-font-mono);
+}
+
+/* Radii */
+.gradio-container {
+    --radius-sm: 6px;
+    --radius-md: var(--ws-radius-control);
+    --radius-lg: var(--ws-radius-control);
+    --radius-xl: var(--ws-radius-card);
+    --block-radius: var(--ws-radius-card);
+    --container-radius: var(--ws-radius-card);
+    --input-radius: var(--ws-radius-control);
+    --button-large-radius: var(--ws-radius-control);
+    --button-small-radius: var(--ws-radius-control);
+    --checkbox-border-radius: 4px;
+}
+
+/* Prompt boxes read as the composer: large radius, soft surface */
+#txt2img_prompt textarea,
+#txt2img_neg_prompt textarea,
+#img2img_prompt textarea,
+#img2img_neg_prompt textarea {
+    border-radius: var(--ws-radius-composer) !important;
+    /* right: room for the hint badge; bottom: room for the token counter */
+    padding: 14px 40px 30px 18px !important;
+    background: var(--background-fill-secondary) !important;
+    border: 1px solid var(--ws-border) !important;
+    box-shadow: var(--shadow-drop);
+}
+
+#txt2img_prompt textarea:focus,
+#txt2img_neg_prompt textarea:focus,
+#img2img_prompt textarea:focus,
+#img2img_neg_prompt textarea:focus {
+    border-color: var(--ws-border-strong) !important;
+    outline: none;
+}
+
+/* Generate: solid monochrome pill */
+#txt2img_generate,
+#img2img_generate {
+    border-radius: var(--ws-radius-composer) !important;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+/* Focus ring is the only blue in the UI */
+.gradio-container :focus-visible {
+    outline: 2px solid var(--ws-ring);
+    outline-offset: 1px;
+}
+
+/* Selected tab: underline in text color instead of an accent hue */
+.tab-nav button.selected {
+    color: var(--body-text-color);
+    border-color: var(--ws-border);
+    font-weight: 600;
+}
+
+/* Monochrome icons replacing emoji.
+   Tool buttons are narrower than their padding, so the content box is ~0px wide:
+   pin the size and let the icon overflow symmetrically like the emoji text did. */
+button .ws-icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    max-width: none;
+    display: block;
+    margin: 0 -10px;
+    opacity: 0.85;
+}
+
+button[data-ws-icon] {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Forge's own "?" link next to VAE / Text Encoder (opens the download wiki): show it as a quiet text link */
+#setting_sd_modules span[data-testid="block-info"] a {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 6px !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    font-size: 0 !important;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#setting_sd_modules span[data-testid="block-info"] a::after {
+    content: "Download guide ↗";
+    font-size: 11px;
+    color: var(--link-text-color);
+}
+
+/* <html data-ws-lang> is set by ws_core.js */
+:root[data-ws-lang="zh_TW"] #setting_sd_modules span[data-testid="block-info"] a::after {
+    content: "下載說明 ↗";
+}
+
+/* Prompt boxes: token counter sits inside the bottom-right corner instead of straddling the rounded border */
+#txt2img_toprow .block.token-counter,
+#img2img_toprow .block.token-counter {
+    /* positioned in the prompt's .form wrapper, which has the same box as the textarea */
+    top: auto;
+    left: auto;
+    bottom: 8px;
+    right: 18px;
+    pointer-events: none;
+}
+
+#txt2img_toprow .block.token-counter span,
+#img2img_toprow .block.token-counter span {
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    color: var(--ws-subtle);
+    font-size: 12px;
+}
+
+#txt2img_toprow .block.token-counter.error span,
+#img2img_toprow .block.token-counter.error span {
+    color: #e02e2a;
+}
+
+button:hover .ws-icon {
+    opacity: 1;
+}
+
+/* Settings page: wider, sticky side index with readable single-line entries */
+#settings > div {
+    margin-left: 216px;
+}
+
+#settings > div.tab-nav {
+    position: sticky;
+    top: 12px;
+    width: 200px;
+    max-height: calc(100vh - 24px);
+    margin-left: 0;
+    padding: 0 8px 12px 0;
+    overflow-y: auto;
+    border-right: 1px solid var(--ws-border);
+    scrollbar-width: thin;
+}
+
+#settings > div.tab-nav #settings_search {
+    margin: 0 0 8px;
+}
+
+#settings > div.tab-nav #settings_search input {
+    width: 100%;
+}
+
+#settings > div.tab-nav button {
+    width: 100%;
+    margin: 1px 0;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: var(--ws-muted);
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+#settings > div.tab-nav button:hover {
+    background: var(--background-fill-secondary);
+    color: var(--body-text-color);
+}
+
+#settings > div.tab-nav button.selected {
+    background: var(--background-fill-secondary);
+    color: var(--body-text-color);
+    font-weight: 600;
+}
+
+#settings > div.tab-nav .settings-category {
+    margin: 14px 0 4px;
+    padding: 10px 10px 0;
+    border-top: 1px solid var(--ws-border);
+    color: var(--ws-subtle);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#settings > div.tab-nav #settings_search + .settings-category {
+    margin-top: 4px;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* One primary action: Reload UI is secondary to Apply settings */
+#settings_restart_gradio {
+    border: 1px solid var(--ws-border-strong);
+    background: var(--button-secondary-background-fill);
+    color: var(--body-text-color);
+}
+
+#settings_restart_gradio:hover {
+    background: var(--background-fill-secondary);
+}
