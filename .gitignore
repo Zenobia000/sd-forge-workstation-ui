@@ -1,0 +1,5 @@
+__pycache__/
+*.stackdump
+# Personal state, never shared
+registry/user_results.json
+tools/sha256_cache.json
