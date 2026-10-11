@@ -8,10 +8,17 @@ It only adds to the UI: Forge's own buttons and fields stay where they are and k
 ## Features
 
 - **Monochrome theme**: a quiet black-and-white theme, line icons instead of emoji, a readable Settings sidebar.
+- **Hints**: a "?" next to common fields explains what they do and which values make sense.
 
 ## Install
 
 **Extensions › Install from URL**, paste `https://github.com/Zenobia000/sd-forge-workstation-ui`, install, then restart Forge.
+
+## Language
+
+English and Traditional Chinese. The extension follows **Settings › User interface › Localization**:
+a `zh*` localization shows Chinese, anything else shows English. With no localization selected, the browser language decides.
+The extension ships a small `zh_TW` localization file so the option exists even without a full translation pack.
 
 ## License
 
