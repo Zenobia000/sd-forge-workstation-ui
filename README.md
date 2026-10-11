@@ -12,6 +12,7 @@ It only adds to the UI: Forge's own buttons and fields stay where they are and k
 - **UI Preset by architecture**: the preset dropdown is grouped into U-Net / DiT, with one line on what each family is for and whether you have a model for it.
 - **Model previews**: hover a Checkpoint to see its preview image and style; a Model Compare tab shows them side by side.
 - **Plans**: pick what you want to do, then apply an "architecture + model + tool" combination to Forge's own fields in one click. Suggestions only; nothing is ever blocked.
+- **Registry tools**: a checker for the model registry and a guide for adding models.
 
 ## Install
 
@@ -22,6 +23,10 @@ It only adds to the UI: Forge's own buttons and fields stay where they are and k
 English and Traditional Chinese. The extension follows **Settings › User interface › Localization**:
 a `zh*` localization shows Chinese, anything else shows English. With no localization selected, the browser language decides.
 The extension ships a small `zh_TW` localization file so the option exists even without a full translation pack.
+
+## Maintaining
+
+See [docs/MAINTAINING.md](docs/MAINTAINING.md) for how to register new models and families.
 
 ## License
 
