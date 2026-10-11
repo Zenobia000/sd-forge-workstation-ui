@@ -1,6 +1,531 @@
 {
   "version": 1,
   "notes": "Platform knowledge. Advisory only: nothing here blocks a combination. Any text may be a plain string or {\"en\": ..., \"zh_TW\": ...}. Route `basis` says where the claim comes from (docs = model card / engine README, verified = tested). User test results live in user_results.json and override these. `presets` describes every Forge UI Preset (architecture = model family; a model is one file inside a family). Companion files belong to the model asset.",
+  "capabilities": {
+    "generate": {
+      "label": {
+        "en": "Text to image",
+        "zh_TW": "從文字生圖"
+      }
+    },
+    "control.edge": {
+      "label": {
+        "en": "Keep outlines",
+        "zh_TW": "保留輪廓"
+      }
+    },
+    "control.pose": {
+      "label": {
+        "en": "Control pose",
+        "zh_TW": "控制姿勢"
+      }
+    },
+    "control.depth": {
+      "label": {
+        "en": "Keep space and perspective",
+        "zh_TW": "保持空間與透視"
+      }
+    },
+    "ref.style": {
+      "label": {
+        "en": "Borrow style and lighting from an image",
+        "zh_TW": "參考圖片風格與光影"
+      }
+    },
+    "edit.instruction": {
+      "label": {
+        "en": "Edit an image with text",
+        "zh_TW": "用文字指令改圖"
+      }
+    },
+    "edit.inpaint": {
+      "label": {
+        "en": "Inpaint an area",
+        "zh_TW": "局部重繪"
+      }
+    },
+    "upscale": {
+      "label": {
+        "en": "Upscale",
+        "zh_TW": "放大"
+      }
+    },
+    "fix.face": {
+      "label": {
+        "en": "Fix faces and hands automatically",
+        "zh_TW": "自動修臉、修手"
+      }
+    }
+  },
+  "tasks": [
+    {
+      "id": "free",
+      "label": {
+        "en": "Just switch models (free testing)",
+        "zh_TW": "只切換模型（自由測試）"
+      },
+      "needs": [],
+      "inputs": []
+    },
+    {
+      "id": "photo",
+      "label": {
+        "en": "Realistic images",
+        "zh_TW": "寫實生圖"
+      },
+      "needs": [
+        "generate"
+      ],
+      "inputs": [
+        "text"
+      ]
+    },
+    {
+      "id": "keep_shape",
+      "label": {
+        "en": "Keep the shape, change style or background",
+        "zh_TW": "保留外形，換風格或背景"
+      },
+      "needs": [
+        "generate",
+        "control.edge"
+      ],
+      "inputs": [
+        "text",
+        "reference_image"
+      ]
+    },
+    {
+      "id": "pose",
+      "label": {
+        "en": "Use the pose from a reference photo",
+        "zh_TW": "照參考照片的姿勢生成"
+      },
+      "needs": [
+        "generate",
+        "control.pose"
+      ],
+      "inputs": [
+        "text",
+        "pose_image"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": {
+        "en": "Keep scene space and perspective",
+        "zh_TW": "保持場景空間與透視"
+      },
+      "needs": [
+        "generate",
+        "control.depth"
+      ],
+      "inputs": [
+        "text",
+        "reference_image"
+      ]
+    },
+    {
+      "id": "style_ref",
+      "label": {
+        "en": "Borrow the style and lighting of an image",
+        "zh_TW": "參考某張圖的風格、光影"
+      },
+      "needs": [
+        "generate",
+        "ref.style"
+      ],
+      "inputs": [
+        "text",
+        "reference_image"
+      ]
+    },
+    {
+      "id": "text_edit",
+      "label": {
+        "en": "Edit an image with text",
+        "zh_TW": "用文字指令改圖"
+      },
+      "needs": [
+        "edit.instruction"
+      ],
+      "inputs": [
+        "text",
+        "source_image"
+      ]
+    },
+    {
+      "id": "local_fix",
+      "label": {
+        "en": "Inpaint an area",
+        "zh_TW": "局部重繪"
+      },
+      "needs": [
+        "edit.inpaint"
+      ],
+      "inputs": [
+        "text",
+        "source_image",
+        "mask"
+      ]
+    },
+    {
+      "id": "finish",
+      "label": {
+        "en": "Upscale and fix faces",
+        "zh_TW": "放大與修臉"
+      },
+      "needs": [
+        "upscale",
+        "fix.face"
+      ],
+      "inputs": [
+        "source_image"
+      ]
+    }
+  ],
+  "architectures": {
+    "sdxl": {
+      "label": "SDXL",
+      "forge_preset": "xl",
+      "slots": {
+        "main": {
+          "role": "checkpoint.sdxl",
+          "required": true,
+          "note": {
+            "en": "Text encoder and VAE are built in; leave VAE / Text Encoder empty",
+            "zh_TW": "Text Encoder 與 VAE 已內建，「VAE / Text Encoder」留空"
+          }
+        }
+      },
+      "defaults": {
+        "width": 1024,
+        "height": 1024,
+        "steps": 30,
+        "cfg": 5
+      },
+      "engine_support": {
+        "forge_neo": [
+          "controlnet",
+          "ipadapter",
+          "lora",
+          "inpaint"
+        ],
+        "comfyui": [
+          "controlnet",
+          "ipadapter",
+          "lora",
+          "inpaint"
+        ]
+      }
+    },
+    "flux2_klein": {
+      "label": "FLUX.2 Klein",
+      "forge_preset": "klein",
+      "slots": {
+        "main": {
+          "role": "diffusion.flux2_klein",
+          "required": true,
+          "note": {
+            "en": "Text encoder and VAE depend on the model size and come from the model entry",
+            "zh_TW": "Text Encoder 與 VAE 依模型大小不同，由模型本身決定"
+          }
+        }
+      },
+      "defaults": {
+        "width": 1024,
+        "height": 1024,
+        "steps": 4,
+        "cfg": 1
+      },
+      "engine_support": {
+        "forge_neo": [
+          "reference_edit",
+          "img2img",
+          "lora"
+        ],
+        "comfyui": [
+          "reference_edit",
+          "img2img",
+          "lora"
+        ]
+      }
+    }
+  },
+  "routes": [
+    {
+      "arch": "sdxl",
+      "capability": "generate",
+      "method": "native",
+      "basis": "docs"
+    },
+    {
+      "arch": "sdxl",
+      "capability": "edit.inpaint",
+      "method": "native",
+      "hint": {
+        "en": "img2img → Inpaint, paint a mask and redraw",
+        "zh_TW": "img2img → Inpaint，塗遮罩後重繪"
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "sdxl",
+      "capability": "control.edge",
+      "method": "controlnet",
+      "requires": [
+        "controlnet.sdxl.canny"
+      ],
+      "forge": {
+        "control_type": "Canny",
+        "preprocessor": "canny",
+        "weight": 0.8,
+        "end": 0.8
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "sdxl",
+      "capability": "control.pose",
+      "method": "controlnet",
+      "requires": [
+        "controlnet.sdxl.openpose"
+      ],
+      "forge": {
+        "control_type": "OpenPose",
+        "preprocessor": "dw_openpose_full",
+        "weight": 1.0,
+        "end": 1.0
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "sdxl",
+      "capability": "control.depth",
+      "method": "controlnet",
+      "requires": [
+        "controlnet.sdxl.depth"
+      ],
+      "forge": {
+        "control_type": "Depth",
+        "preprocessor": "depth_anything_v2",
+        "weight": 0.7,
+        "end": 0.8
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "sdxl",
+      "capability": "ref.style",
+      "method": "ipadapter",
+      "requires": [
+        "ipadapter.sdxl.vit_h",
+        "clip_vision.vit_h"
+      ],
+      "forge": {
+        "control_type": "IP-Adapter",
+        "preprocessor": "CLIP-ViT-H (IPAdapter)",
+        "weight": 0.6,
+        "end": 1.0
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "sdxl",
+      "capability": "upscale",
+      "method": "upscaler",
+      "requires": [
+        "upscaler.x4"
+      ],
+      "basis": "docs"
+    },
+    {
+      "arch": "sdxl",
+      "capability": "fix.face",
+      "method": "adetailer",
+      "requires": [
+        "adetailer.face"
+      ],
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "generate",
+      "method": "native",
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "edit.instruction",
+      "method": "reference_edit",
+      "hint": {
+        "en": "Upload the source in img2img and write the change as the prompt (reference mode is switched on automatically); for several references, open ImageStitch Integrated and add them there",
+        "zh_TW": "img2img 上傳原圖，提示詞直接寫要改什麼（reference 模式會自動開啟）；要同時參考多張圖時，再展開 ImageStitch Integrated 放其他參考圖"
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "ref.style",
+      "method": "reference_edit",
+      "hint": {
+        "en": "Open ImageStitch Integrated and add the reference (txt2img allows a custom output size); describe the style to keep in the prompt",
+        "zh_TW": "展開 ImageStitch Integrated 放參考圖（txt2img 可自訂輸出尺寸），提示詞描述要沿用的風格"
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "control.pose",
+      "method": "reference_edit",
+      "hint": {
+        "en": "No ControlNet; open ImageStitch Integrated, add the pose photo and prompt \"the person takes the pose of the reference\". Less precise than SDXL + OpenPose",
+        "zh_TW": "沒有 ControlNet；展開 ImageStitch Integrated 放姿勢照，提示詞寫「讓人物擺出參考圖的姿勢」，精準度不如 SDXL＋OpenPose"
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "edit.inpaint",
+      "method": "native",
+      "hint": {
+        "en": "img2img → Inpaint",
+        "zh_TW": "img2img → Inpaint"
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "upscale",
+      "method": "upscaler",
+      "requires": [
+        "upscaler.x4"
+      ],
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "control.edge",
+      "method": "engine_limit",
+      "hint": {
+        "en": "Forge Neo has no ControlNet for the FLUX family",
+        "zh_TW": "Forge Neo 不支援 FLUX 系列的 ControlNet"
+      },
+      "basis": "docs"
+    },
+    {
+      "arch": "flux2_klein",
+      "capability": "control.depth",
+      "method": "engine_limit",
+      "hint": {
+        "en": "Forge Neo has no ControlNet for the FLUX family",
+        "zh_TW": "Forge Neo 不支援 FLUX 系列的 ControlNet"
+      },
+      "basis": "docs"
+    }
+  ],
+  "assets": [
+    {
+      "file": "juggernautXL_ragnarokBy.safetensors",
+      "role": "checkpoint.sdxl",
+      "label": "Juggernaut XL Ragnarok",
+      "tags": [
+        {
+          "en": "realistic",
+          "zh_TW": "寫實"
+        },
+        {
+          "en": "advertising",
+          "zh_TW": "廣告"
+        }
+      ]
+    },
+    {
+      "file": "dreamshaperXL_lightningDPMSDE.safetensors",
+      "role": "checkpoint.sdxl",
+      "label": "DreamShaper XL Lightning",
+      "tags": [
+        {
+          "en": "fast drafts",
+          "zh_TW": "快速草稿"
+        }
+      ],
+      "overrides": {
+        "steps": 6,
+        "cfg": 2,
+        "sampler": "DPM++ SDE",
+        "scheduler": "Karras"
+      }
+    },
+    {
+      "file": "flux-2-klein-4b-fp8.safetensors",
+      "role": "diffusion.flux2_klein",
+      "label": "FLUX.2 Klein 4B (fp8)",
+      "sha256": "97ed34fe0567e436200f2faee3939b88f2b5d99f8af2a4dc16532c4245c0ccb6",
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8",
+      "license": "apache-2.0",
+      "tags": [
+        "4B",
+        "fp8"
+      ],
+      "companions": [
+        "text_encoder.qwen3_4b",
+        "vae.flux2"
+      ]
+    },
+    {
+      "file": "qwen_3_4b.safetensors",
+      "role": "text_encoder.qwen3_4b",
+      "sha256": "6c671498573ac2f7a5501502ccce8d2b08ea6ca2f661c458e708f36b36edfc5a",
+      "source": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b"
+    },
+    {
+      "file": "flux2-vae.safetensors",
+      "role": "vae.flux2",
+      "sha256": "868fe7b343cc8f3a19dbcfcafbc3d5f888802be3f89bd81b65b3621a066ce8f3",
+      "source": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-4b"
+    },
+    {
+      "file": "xinsir_canny_sdxl.safetensors",
+      "role": "controlnet.sdxl.canny",
+      "sha256": "bf47cd757ceaf2572c53321329ef819ea38c09a6e3783588387913cd94dff47c",
+      "source": "https://huggingface.co/xinsir/controlnet-canny-sdxl-1.0"
+    },
+    {
+      "file": "xinsir_openpose_sdxl.safetensors",
+      "role": "controlnet.sdxl.openpose",
+      "sha256": "b8524e557a7df60d081f5d4a0eb109967d107df217943bf88c2d99b9ebcc06c5",
+      "source": "https://huggingface.co/xinsir/controlnet-openpose-sdxl-1.0"
+    },
+    {
+      "file": "diffusers_depth_sdxl_small_fp16.safetensors",
+      "role": "controlnet.sdxl.depth",
+      "sha256": "6f23c58fd632f52238a7b35ebdc02f9f596fd13dbaa121f9b37b9f4689c2b1e9",
+      "source": "https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0-small"
+    },
+    {
+      "file": "ip-adapter-plus_sdxl_vit-h.safetensors",
+      "role": "ipadapter.sdxl.vit_h",
+      "sha256": "3f5062b8400c94b7159665b21ba5c62acdcd7682262743d7f2aefedef00e6581",
+      "source": "https://huggingface.co/h94/IP-Adapter"
+    },
+    {
+      "file": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors",
+      "role": "clip_vision.vit_h",
+      "sha256": "6ca9667da1ca9e0b0f75e46bb030f7e011f44f86cbfb8d5a36590fcd7507b030",
+      "source": "https://huggingface.co/h94/IP-Adapter"
+    },
+    {
+      "file": "RealESRGAN_x4plus.pth",
+      "role": "upscaler.x4",
+      "sha256": "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1",
+      "source": "https://github.com/xinntao/Real-ESRGAN"
+    },
+    {
+      "file": "face_yolov8n.pt",
+      "role": "adetailer.face"
+    }
+  ],
   "presets": {
     "sd": {
       "arch": "U-Net",

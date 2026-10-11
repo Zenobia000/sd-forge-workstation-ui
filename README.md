@@ -11,6 +11,7 @@ It only adds to the UI: Forge's own buttons and fields stay where they are and k
 - **Hints**: a "?" next to common fields explains what they do and which values make sense.
 - **UI Preset by architecture**: the preset dropdown is grouped into U-Net / DiT, with one line on what each family is for and whether you have a model for it.
 - **Model previews**: hover a Checkpoint to see its preview image and style; a Model Compare tab shows them side by side.
+- **Plans**: pick what you want to do, then apply an "architecture + model + tool" combination to Forge's own fields in one click. Suggestions only; nothing is ever blocked.
 
 ## Install
 
