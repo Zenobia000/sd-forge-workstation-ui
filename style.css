@@ -461,3 +461,103 @@ label:has(> .ws-hint-float) {
     color: var(--ws-muted);
     margin-top: 2px;
 }
+
+/* ==================== UI Preset dropdown: architecture -> family, one short line each ==================== */
+
+/* ---------- UI Preset dropdown: architecture -> preset, one short line each ---------- */
+#quicksettings > #forge_ui_preset {
+    flex: 0 0 170px;
+    width: 170px;
+}
+
+/* The input must fill the wider box: the arrow ignores clicks, so only the input opens the list */
+#forge_ui_preset .secondary-wrap input {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+}
+
+#forge_ui_preset ul.ws-preset-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 240px !important;
+    padding: 6px;
+}
+
+#forge_ui_preset ul.ws-preset-list li.ws-preset-group {
+    padding: 8px 10px 2px;
+    color: var(--ws-subtle);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+}
+
+#forge_ui_preset ul.ws-preset-list li.ws-preset-group:not(.ws-first) {
+    margin-top: 4px;
+    border-top: 1px solid var(--ws-border);
+}
+
+/* Grid: column 1 = Gradio's check mark, column 2 = name with the short line under it */
+#forge_ui_preset ul.ws-preset-list li.ws-preset-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    align-items: baseline;
+    width: auto !important;
+    padding: 6px 28px 6px 10px;
+    border-radius: 6px;
+    line-height: 1.3;
+}
+
+/* Injected parts must not become the click target (Gradio reads data-index from it) */
+#forge_ui_preset ul.ws-preset-list li.ws-preset-item > .inner-item {
+    padding: 0;
+}
+
+#forge_ui_preset ul.ws-preset-list li.ws-preset-item > .ws-preset-sub {
+    grid-column: 2;
+    color: var(--ws-muted);
+    font-size: 12px;
+    pointer-events: none;
+}
+
+/* Installed: small dot on the right */
+#forge_ui_preset ul.ws-preset-list li.ws-preset-on::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    border-radius: 50%;
+    background: var(--body-text-color);
+    pointer-events: none;
+}
+
+#forge_ui_preset ul.ws-preset-list li.ws-preset-item:not(.ws-preset-on) {
+    color: var(--ws-subtle);
+}
+
+#forge_ui_preset ul.ws-preset-list li.ws-preset-item:not(.ws-preset-on) > .ws-preset-sub {
+    color: var(--ws-subtle);
+}
+
+.ws-preset-tip-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.ws-preset-tip-row b {
+    flex: 0 0 52px;
+}
+
+.ws-preset-tip-row .ws-off {
+    color: var(--ws-subtle);
+}
+
+.ws-preset-tip-row .ws-on {
+    font-weight: 600;
+}

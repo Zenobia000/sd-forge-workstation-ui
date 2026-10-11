@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "notes": "Platform knowledge. Advisory only: nothing here blocks a combination. Any text may be a plain string or {\"en\": ..., \"zh_TW\": ...}. Route `basis` says where the claim comes from (docs = model card / engine README, verified = tested). User test results live in user_results.json and override these. `presets` describes every Forge UI Preset (architecture = model family; a model is one file inside a family). Companion files belong to the model asset.",
+  "presets": {
+    "sd": {
+      "arch": "U-Net",
+      "name": "SD 1.5",
+      "short": {
+        "en": "Lightweight, most resources",
+        "zh_TW": "輕量、資源最多"
+      },
+      "summary": {
+        "en": "Older generation with the largest LoRA ecosystem; built around 512 px.",
+        "zh_TW": "舊世代，LoRA 資源最多；解析度以 512 為基準。"
+      },
+      "controlnet": true,
+      "edit": {
+        "en": "Inpaint",
+        "zh_TW": "Inpaint"
+      },
+      "folders": [
+        "sd1.5",
+        "sd15",
+        "sd1"
+      ]
+    },
+    "xl": {
+      "arch": "U-Net",
+      "name": "SDXL",
+      "short": {
+        "en": "Precise control, retouching",
+        "zh_TW": "精準控制、修圖"
+      },
+      "summary": {
+        "en": "The most mature ControlNet (incl. Union, LLLite), IP-Adapter and inpainting; built around 1024 px.",
+        "zh_TW": "ControlNet（含 Union、LLLite）、IP-Adapter、遮罩修圖最成熟；解析度以 1024 為基準。"
+      },
+      "controlnet": true,
+      "edit": {
+        "en": "Inpaint",
+        "zh_TW": "Inpaint"
+      },
+      "folders": [
+        "sdxl",
+        "xl"
+      ]
+    },
+    "flux": {
+      "arch": "DiT",
+      "name": "FLUX.1",
+      "short": {
+        "en": "High-quality images",
+        "zh_TW": "高品質生圖"
+      },
+      "summary": {
+        "en": "Strong natural-language understanding. Kontext models (path contains kontext) edit with text; Chroma is also supported.",
+        "zh_TW": "自然語言理解佳。Kontext 版（路徑含 kontext）可用文字改圖；也支援 Chroma。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "Kontext models",
+        "zh_TW": "Kontext 版模型"
+      },
+      "folders": [
+        "flux",
+        "flux1"
+      ]
+    },
+    "klein": {
+      "arch": "DiT",
+      "name": "FLUX.2 Klein",
+      "short": {
+        "en": "Generate + edit",
+        "zh_TW": "生圖＋改圖"
+      },
+      "summary": {
+        "en": "Generation and reference editing in one model, 4B / 9B, 4 steps. Switch img2img / reference mode in Settings › Stable Diffusion.",
+        "zh_TW": "生圖與參考圖編輯合一，4B / 9B，預設 4 步。在 Settings › Stable Diffusion 切換 img2img / reference 模式。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "Reference editing",
+        "zh_TW": "參考圖編輯"
+      },
+      "folders": [
+        "flux2",
+        "klein"
+      ]
+    },
+    "qwen": {
+      "arch": "DiT",
+      "name": "Qwen-Image",
+      "short": {
+        "en": "Generate, Edit variant",
+        "zh_TW": "生圖；Edit 版可改圖"
+      },
+      "summary": {
+        "en": "A path containing both qwen and edit is treated as the Edit model, which edits with text instructions.",
+        "zh_TW": "路徑同時含 qwen 與 edit 才會被當成 Edit 模型，可用文字指令改圖。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "Edit models",
+        "zh_TW": "Edit 版模型"
+      },
+      "folders": [
+        "qwen",
+        "qwen-image"
+      ]
+    },
+    "qwen21": {
+      "arch": "DiT",
+      "name": "Qwen-Image 2.1",
+      "short": {
+        "en": "Generate + edit",
+        "zh_TW": "生圖＋改圖"
+      },
+      "summary": {
+        "en": "Generation and reference editing; 32 steps, CFG 2.5. Switch img2img / reference mode in Settings › Stable Diffusion.",
+        "zh_TW": "生圖與參考圖編輯；預設 32 步、CFG 2.5。在 Settings › Stable Diffusion 切換 img2img / reference 模式。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "Reference editing",
+        "zh_TW": "參考圖編輯"
+      },
+      "folders": [
+        "qwen21",
+        "qwen-image-2.1"
+      ]
+    },
+    "zit": {
+      "arch": "DiT",
+      "name": "Z-Image",
+      "short": {
+        "en": "Few steps, fast",
+        "zh_TW": "少步數、出圖快"
+      },
+      "summary": {
+        "en": "Fast images in few steps; 9 steps, CFG 1.",
+        "zh_TW": "少步數快速出圖；預設 9 步、CFG 1。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "img2img",
+        "zh_TW": "img2img"
+      },
+      "folders": [
+        "z-image",
+        "zimage",
+        "zit"
+      ]
+    },
+    "krea": {
+      "arch": "DiT",
+      "name": "Krea 2",
+      "short": {
+        "en": "High-quality images",
+        "zh_TW": "高品質生圖"
+      },
+      "summary": {
+        "en": "High-quality generation; Identity Edit with a dedicated LoRA. Check the license on the model page.",
+        "zh_TW": "高品質生圖；搭配專用 LoRA 可做 Identity Edit。授權請看模型頁。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "Needs a LoRA",
+        "zh_TW": "需專用 LoRA"
+      },
+      "folders": [
+        "krea",
+        "krea2"
+      ]
+    },
+    "lumina": {
+      "arch": "DiT",
+      "name": "Lumina 2.0",
+      "short": {
+        "en": "General images",
+        "zh_TW": "通用生圖"
+      },
+      "summary": {
+        "en": "General-purpose generation; 32 steps, CFG 4.",
+        "zh_TW": "通用生圖；預設 32 步、CFG 4。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "img2img",
+        "zh_TW": "img2img"
+      },
+      "folders": [
+        "lumina"
+      ]
+    },
+    "ernie": {
+      "arch": "DiT",
+      "name": "ERNIE-Image",
+      "short": {
+        "en": "General images",
+        "zh_TW": "通用生圖"
+      },
+      "summary": {
+        "en": "General-purpose generation by Baidu; 8 steps, CFG 1.",
+        "zh_TW": "百度的通用生圖模型；預設 8 步、CFG 1。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "img2img",
+        "zh_TW": "img2img"
+      },
+      "folders": [
+        "ernie"
+      ]
+    },
+    "anima": {
+      "arch": "DiT",
+      "name": "Anima",
+      "short": {
+        "en": "Anime characters",
+        "zh_TW": "動漫角色"
+      },
+      "summary": {
+        "en": "Anime characters, 2B / 2.9B / 3.8B. LLLite and Region ControlNet; editing with a dedicated LoRA.",
+        "zh_TW": "動漫角色，2B / 2.9B / 3.8B。支援 LLLite 與 Region ControlNet；搭配專用 LoRA 可編輯。"
+      },
+      "controlnet": "LLLite / Region",
+      "edit": {
+        "en": "Needs a LoRA",
+        "zh_TW": "需專用 LoRA"
+      },
+      "folders": [
+        "anima"
+      ]
+    },
+    "wan": {
+      "arch": "DiT",
+      "name": "Wan 2.2",
+      "short": {
+        "en": "Video",
+        "zh_TW": "影片"
+      },
+      "summary": {
+        "en": "Text-to-video and image-to-video, 14B only. Refiner switches High / Low Noise; exporting needs FFmpeg.",
+        "zh_TW": "文生影片、圖生影片，只支援 14B。用 Refiner 切換 High / Low Noise；匯出需安裝 FFmpeg。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "First / last frame",
+        "zh_TW": "首尾幀"
+      },
+      "folders": [
+        "wan",
+        "wan2.2"
+      ]
+    },
+    "pid": {
+      "arch": "Other",
+      "name": "PiD",
+      "short": {
+        "en": "High-res upscaling",
+        "zh_TW": "高解析度放大"
+      },
+      "summary": {
+        "en": "NVIDIA detail reconstruction, not a regular generator. img2img Resize by 4x, or PiD Integrated after generation. Non-commercial weights.",
+        "zh_TW": "NVIDIA 的細節重建，不是一般生圖模型。在 img2img 用 Resize by 4x，或生圖後用 PiD Integrated。公開權重為非商業授權。"
+      },
+      "controlnet": false,
+      "edit": {
+        "en": "img2img upscale",
+        "zh_TW": "img2img 放大"
+      },
+      "folders": [
+        "pid"
+      ]
+    }
+  }
+}
